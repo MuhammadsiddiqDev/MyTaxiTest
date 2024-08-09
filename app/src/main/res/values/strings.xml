@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MyTaxiTestApp</string>
+    <string name="active">Faol</string>
+    <string name="busy">Band</string>
+    <string name="tariff">Tarif</string>
+    <string name="orders">Buyurtmalar</string>
+    <string name="went">Bordi</string>
+
+
+
+</resources>
