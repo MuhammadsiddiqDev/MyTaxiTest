@@ -1,5 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyTaxiTestApp</string>
+    <string name="key">sk.eyJ1IjoibXVoYW1tYWRzaWRkaXEwMDEiLCJhIjoiY2x6cG9ocXdnMG05MTJxczMwanZ2NWc5NiJ9.GEF3bZIJUirJPqzF2V7zFA</string>
     <string name="active">Faol</string>
     <string name="busy">Band</string>
     <string name="tariff">Tarif</string>

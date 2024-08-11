@@ -3,28 +3,31 @@ package com.datasite.mytaxitestapp.core.viewModel
 import androidx.lifecycle.ViewModel
 import com.datasite.mytaxitestapp.core.intentt.MapIntent
 import com.datasite.mytaxitestapp.core.state.MapState
-import com.mapbox.mapboxsdk.camera.CameraPosition
+import com.google.android.gms.maps.model.CameraPosition
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-
+import kotlinx.coroutines.flow.asStateFlow
 class MapViewModel : ViewModel() {
-
     private val _state = MutableStateFlow(MapState())
-    val state: StateFlow<MapState> get() = _state
+    val state: StateFlow<MapState> = _state.asStateFlow()
 
-    fun processIntent(intent: MapIntent) {
+    fun handleIntent(intent: MapIntent) {
         when (intent) {
-            is MapIntent.LoadMap -> loadMap()
-            is MapIntent.SetCameraPosition -> setCameraPosition(intent.position)
+            is MapIntent.LoadUserLocation -> loadUserLocation()
+            is MapIntent.UpdateZoom -> updateZoom(intent.zoomLevel)
+            is MapIntent.ToggleBottomSheet -> toggleBottomSheet(intent.show)
         }
     }
 
-    private fun loadMap() {
-        // Update state or perform actions to load the map
-        // Example: _state.value = _state.value.copy(styleUrl = "newStyleUrl")
+    private fun loadUserLocation() {
+        // Implement your logic to load user location
     }
 
-    private fun setCameraPosition(position: CameraPosition) {
-        _state.value = _state.value.copy(cameraPosition = position)
+    private fun updateZoom(zoomLevel: Double) {
+        _state.value = _state.value.copy(zoomLevel = zoomLevel)
+    }
+
+    private fun toggleBottomSheet(show: Boolean) {
+        _state.value = _state.value.copy(showBottomSheet = show)
     }
 }

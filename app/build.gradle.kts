@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -70,10 +72,16 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
 
-    //Maplibr
-    implementation("org.maplibre.gl:android-sdk:10.0.2")
+//    mapBox
+    implementation("com.mapbox.maps:android:11.3.0")
+    implementation("com.mapbox.extension:maps-compose:11.3.0")
 
+    //Room
+    val roomVersion = "2.6.1"
 
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:2.6.1")
 
     //ConstraintLayout
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")

@@ -18,6 +18,7 @@ import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
@@ -30,15 +31,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.datasite.mytaxitestapp.R
@@ -63,7 +61,7 @@ fun bottomSheet(showBottomSheet :MutableState<Boolean>): MutableState<Boolean> {
         sheetState = modalBottomSheetState,
         dragHandle = { BottomSheetDefaults.DragHandle() },
         content = {
-            Column(modifier = Modifier.background(colorResource(id = R.color.my_white))) {
+            Column(modifier = Modifier.background(MaterialTheme.colorScheme.onSecondary)) {
                 Box(modifier = Modifier
 
                     .fillMaxWidth()
@@ -72,7 +70,7 @@ fun bottomSheet(showBottomSheet :MutableState<Boolean>): MutableState<Boolean> {
                         onClick = {},
                         interactionSource = remember { MutableInteractionSource() },
                         indication = rememberRipple(
-                            color = Color.Black
+                            color = MaterialTheme.colorScheme.onPrimary
                         )
                     )
                 )
@@ -81,7 +79,7 @@ fun bottomSheet(showBottomSheet :MutableState<Boolean>): MutableState<Boolean> {
                     Column(modifier = Modifier
                         .padding(start = 16.dp, end = 16.dp, bottom = 16.dp, top = 12.dp)
                         .clip(RoundedCornerShape(12.dp))
-                        .background(colorResource(id = R.color.my_gray))) {
+                        .background(MaterialTheme.colorScheme.tertiaryContainer)) {
 
                         bottomItem(count = "6 / 8",icon = R.drawable.tariff_icon, text = R.string.tariff)
 
@@ -90,7 +88,7 @@ fun bottomSheet(showBottomSheet :MutableState<Boolean>): MutableState<Boolean> {
                             .padding(horizontal = 16.dp)
                             .fillMaxWidth()
                             .background(
-                                colorResource(id = R.color.my_line_color)
+                                MaterialTheme.colorScheme.primaryContainer
                             ))
 
                         bottomItem(count = "0",icon = R.drawable.order_icon, text = R.string.orders)
@@ -100,7 +98,7 @@ fun bottomSheet(showBottomSheet :MutableState<Boolean>): MutableState<Boolean> {
                             .padding(horizontal = 16.dp)
                             .fillMaxWidth()
                             .background(
-                                colorResource(id = R.color.my_line_color)
+                                MaterialTheme.colorScheme.primaryContainer
                             ))
 
                         bottomItem(count = "",icon = R.drawable.rocket_icon, text = R.string.went)
@@ -129,7 +127,7 @@ fun bottomItem(count : String, icon : Int, text : Int){
             onClick = {},
             interactionSource = remember { MutableInteractionSource() },
             indication = rememberRipple(
-                color = Color.Black
+                color = MaterialTheme.colorScheme.onPrimary
             )
         ))
     {
@@ -140,7 +138,7 @@ fun bottomItem(count : String, icon : Int, text : Int){
             Spacer(modifier = Modifier.size(16.dp))
             Icon(
                 painter = painterResource(id = icon),
-                tint = colorResource(id =R.color.my_icon_color),
+                tint = MaterialTheme.colorScheme.tertiary,
                 contentDescription = null,modifier = Modifier.size(24.dp)
             )
 
@@ -149,10 +147,13 @@ fun bottomItem(count : String, icon : Int, text : Int){
             Text(modifier = Modifier.weight(1f),
                 text = stringResource(id = text),
                 fontSize = 18.sp,
-                color = colorResource(id = R.color.my_black),
+                color = MaterialTheme.colorScheme.onPrimary,
                 maxLines = 2,
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.W600,
+                fontFamily = FontFamily(
+                    Font(R.font.lato_regular)
+                )
 
                 )
 
@@ -161,17 +162,20 @@ fun bottomItem(count : String, icon : Int, text : Int){
                 Text(modifier = Modifier,
                     text = count,
                     fontSize = 18.sp,
-                    color = colorResource(id = R.color.my_icon_color),
+                    color = MaterialTheme.colorScheme.tertiary,
                     maxLines = 2,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.W600,
+                    fontFamily = FontFamily(
+                        Font(R.font.lato_regular)
+                    )
 
 
                     )
 
                 Icon(
                     painter = painterResource(id = R.drawable.right_icon),
-                    tint = colorResource(id =R.color.my_right_icon),
+                    tint = MaterialTheme.colorScheme.secondaryContainer,
                     contentDescription = null,modifier = Modifier.size(24.dp)
 
                 )

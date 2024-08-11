@@ -1,12 +1,13 @@
 package com.datasite.mytaxitestapp.core.state
 
-import com.mapbox.mapboxsdk.camera.CameraPosition
-import com.mapbox.mapboxsdk.geometry.LatLng
-
+import android.health.connect.datatypes.ExerciseRoute
+import com.datasite.mytaxitestapp.core.room.UserLocation
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
 data class MapState(
-    val styleUrl: String = "https://api.maptiler.com/maps/streets-v2/style.json?key=DFTf41wLNmBwfqLyXxvi",
-    val cameraPosition: CameraPosition = CameraPosition.Builder()
-        .target(LatLng(41.311081, 69.280562))
-        .zoom(15.0)
-        .build()
+    val zoomLevel: Double = 14.0,
+    val userLocation: ExerciseRoute.Location? = null,
+    val locations: List<UserLocation> = emptyList(),
+    val isLoading: Boolean = false,
+    val showBottomSheet: Boolean = false
 )

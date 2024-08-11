@@ -1,8 +1,8 @@
 package com.datasite.mytaxitestapp.core.intentt
 
-import com.mapbox.mapboxsdk.camera.CameraPosition
-
+import com.google.android.gms.maps.model.CameraPosition
 sealed class MapIntent {
-    object LoadMap : MapIntent()
-    data class SetCameraPosition(val position: CameraPosition) : MapIntent()
+    object LoadUserLocation : MapIntent()
+    data class UpdateZoom(val zoomLevel: Double) : MapIntent()
+    data class ToggleBottomSheet(val show: Boolean) : MapIntent()
 }
