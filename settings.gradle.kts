@@ -1,4 +1,3 @@
-import org.gradle.internal.impldep.org.jsoup.safety.Safelist
 
 pluginManagement {
     repositories {

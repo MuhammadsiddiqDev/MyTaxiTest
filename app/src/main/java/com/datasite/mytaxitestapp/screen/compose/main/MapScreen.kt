@@ -166,6 +166,7 @@ fun MapScreen() {
 
 
         }else{
+            Toast.makeText(context, "Location not available", Toast.LENGTH_SHORT).show()
             locationLauncher.launch(
                 arrayOf(
                     Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -378,6 +379,7 @@ fun MapScreen() {
                             }
 
                         }else{
+                            Toast.makeText(context, "Location not available", Toast.LENGTH_SHORT).show()
                             locationLauncher.launch(
                                 arrayOf(
                                     Manifest.permission.ACCESS_COARSE_LOCATION,
